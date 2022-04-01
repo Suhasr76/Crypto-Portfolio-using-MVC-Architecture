@@ -8,7 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import ch.qos.logback.core.subst.Token.Type;
+//import ch.qos.logback.core.subst.Token.Type;
 
 import org.springframework.web.bind.annotation.ModelAttribute;
 
@@ -94,6 +94,12 @@ public class CryptoController {
 			 */
 			repo.deleteByName(b.getName());
 		}
+		return "redirect:viewcrypto";
+	}
+
+	@PostMapping("/deleteIndcrypto")
+	public String delcryptoInd(String name) {
+		repo.deleteByName(name);
 		return "redirect:viewcrypto";
 	}
 }

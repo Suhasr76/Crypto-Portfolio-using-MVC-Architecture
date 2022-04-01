@@ -34,6 +34,9 @@
 			<th class="text-center">Funds</th>
 			<th class="text-center">Value</th>
 		</tr>
+		<script>
+			sum=0;
+		</script>
 		<tr th:each="b : ${allcrypto}">
 			<!-- <td>hi</td>
 			<td>h2</td>
@@ -44,11 +47,17 @@
 			<td th:text="${b.price}"></td>
 			<td th:text="${b.funds}"></td>
 			<td th:text="${b.value}"></td>
+			<script>
+				sum=sum+$('#b').getValue();
+				console.log(sum)
+			</script>
 			<!-- <td th:text="${b.value}"></td> -->
 			<!-- <td>
-			<form action="#" th:action="@{/deletecrypto}" th:object="${b._id}" method="post">
+			<form action="#" th:action="@{/deleteIndcrypto}" th:object="${b.name}" method="post">
+				<p th:text="${b.name}"></p>
+				<input type="text" id="crypName" th:object="${b.name}">
 				<input type="submit" value="Delete" />
-				<p th:text="${b._id}"></p>
+				 <p th:text="${b._id}"></p> 
 
 			</form>
 			</td> -->
@@ -56,7 +65,9 @@
 			
 		</tr>
 	</table>
-	
+	<script>
+		document.write("Total value "+sum)
+	</script>
 	</div>
 
 
